@@ -8,216 +8,344 @@
   <meta property="og:title" content="Yann Madry – Étudiant en BUT Informatique">
   <meta property="og:description" content="Projets en C++, Java et web. Recherche un stage en développement du 12 avril au 10 juin 2027.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c8552b'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23fff'%3EYM%3C/text%3E%3C/svg%3E">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111'/%3E%3Crect x='5' y='9' width='3' height='14' fill='%23fff'/%3E%3Crect x='24' y='9' width='3' height='14' fill='%23fff'/%3E%3Crect x='14' y='14' width='4' height='4' fill='%23ff8a5b'/%3E%3C/svg%3E">
+
+  <!-- Applique le thème choisi avant l'affichage, pour éviter un flash -->
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      var themeEnregistre = localStorage.getItem("theme");
+      if (themeEnregistre) document.documentElement.dataset.theme = themeEnregistre;
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
+  <div class="progression" aria-hidden="true"></div>
 
   <header class="entete">
-    <a class="marque" href="#haut">Yann Madry</a>
+    <a class="marque" href="#haut" aria-label="Yann Madry, retour en haut">
+      <span class="marque-logo" aria-hidden="true"></span>Yann Madry
+    </a>
     <nav aria-label="Navigation principale">
       <a href="#projets">Projets</a>
       <a href="#competences">Compétences</a>
       <a href="#parcours">Parcours</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="bascule-theme" type="button" aria-label="Changer de thème">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path class="lune" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/><g class="soleil"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+    </button>
   </header>
 
   <main id="contenu">
 
+    <!-- ================= Présentation ================= -->
     <section class="hero" id="haut">
-      <p class="surtitre">BUT Informatique · IUT Lyon 1 · 2ᵉ année</p>
-      <h1>Yann Madry</h1>
-      <p class="accroche">
-        Je développe en Java et en C++, du logiciel de bureau à l'embarqué en passant par le web.
-      </p>
-      <p class="dispo">
-        <span class="pastille" aria-hidden="true"></span>
-        <span>Je cherche un stage en développement du <strong>12 avril au 10 juin 2027</strong>.</span>
-      </p>
-      <div class="actions">
-        <a class="bouton plein" href="#projets">Voir mes projets</a>
-        <a class="bouton" href="https://github.com/yann-madry">GitHub</a>
-        <a class="bouton" href="https://www.linkedin.com/in/yann-madry">LinkedIn</a>
+      <div class="hero-texte">
+        <p class="surtitre">BUT Informatique · IUT Lyon 1 · 2ᵉ année</p>
+        <h1>Yann<br>Madry</h1>
+        <p class="accroche">
+          Je développe en Java et en C++&nbsp;:
+          <span class="rotation" aria-hidden="true"><span class="rotation-mot">logiciel de bureau</span></span>
+          <span class="visuellement-cache">logiciel de bureau, systèmes embarqués et sites web.</span>
+        </p>
+        <p class="dispo">
+          <span class="pastille" aria-hidden="true"></span>
+          <span>Je cherche un stage en développement du <strong>12 avril au 10 juin 2027</strong>.</span>
+        </p>
+        <div class="actions">
+          <a class="bouton plein" href="#projets">Voir mes projets</a>
+          <a class="bouton" href="#contact">Me contacter</a>
+        </div>
       </div>
+
+      <figure class="console">
+        <div class="console-boitier">
+          <div class="console-barre" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <em>pong.ino</em>
+          </div>
+          <canvas id="pong" width="128" height="64" tabindex="0" role="img"
+                  aria-label="Démonstration animée du jeu Pong. Avec la souris ou les flèches haut et bas, on contrôle la raquette de gauche."></canvas>
+        </div>
+        <figcaption>
+          <span id="pong-aide">Passe la souris sur l'écran pour jouer</span>
+          <button id="pong-pause" class="mini-bouton" type="button" aria-pressed="false">Pause</button>
+        </figcaption>
+        <p class="console-note">Un écran de 128 × 64 pixels, comme celui de mon <a href="#projet-pong">Pong sur ESP32</a>.</p>
+      </figure>
     </section>
 
+    <!-- ================= En bref ================= -->
+    <section class="bref" aria-label="En bref">
+      <dl>
+        <div class="revele"><dt>Formation</dt><dd>BUT Informatique, 2ᵉ année</dd></div>
+        <div class="revele"><dt>Stage recherché</dt><dd>12 avril – 10 juin 2027</dd></div>
+        <div class="revele"><dt>Langages principaux</dt><dd>Java, C++</dd></div>
+        <div class="revele"><dt>Anglais</dt><dd>Niveau B2</dd></div>
+      </dl>
+    </section>
+
+    <!-- ================= Projets ================= -->
     <section id="projets" aria-labelledby="titre-projets">
       <p class="repere">01</p>
       <h2 id="titre-projets">Projets</h2>
-      <p class="intro">Trois projets menés en équipe pendant ma première année, avec leur code en ligne.</p>
+      <p class="intro">Du microcontrôleur à l'application de bureau. Les trois premiers ont leur code en ligne.</p>
+
+      <div class="filtres" role="group" aria-label="Filtrer les projets par technologie">
+        <button type="button" class="filtre" data-filtre="tous" aria-pressed="true">Tous</button>
+        <button type="button" class="filtre" data-filtre="cpp" aria-pressed="false">C++</button>
+        <button type="button" class="filtre" data-filtre="java" aria-pressed="false">Java</button>
+        <button type="button" class="filtre" data-filtre="python" aria-pressed="false">Python</button>
+        <button type="button" class="filtre" data-filtre="web" aria-pressed="false">Web</button>
+        <button type="button" class="filtre" data-filtre="embarque" aria-pressed="false">Embarqué</button>
+        <button type="button" class="filtre" data-filtre="donnees" aria-pressed="false">Données</button>
+      </div>
+      <p class="filtres-compte" aria-live="polite"></p>
 
       <div class="projets">
 
-        <article class="projet">
-          <a class="vignette" href="https://youtu.be/keIEQiKue9o" aria-label="Voir la vidéo de démonstration du Pong">
-            <img src="https://img.youtube.com/vi/keIEQiKue9o/hqdefault.jpg" alt="Deux cartes ESP32 affichant une partie de Pong" loading="lazy" width="480" height="360">
-            <span class="lecture" aria-hidden="true">▶ Vidéo</span>
+        <article class="projet vedette revele" id="projet-pong" data-tags="cpp embarque">
+          <a class="visuel" href="https://youtu.be/keIEQiKue9o" aria-label="Voir la vidéo de démonstration du Pong">
+            <img src="https://img.youtube.com/vi/keIEQiKue9o/hqdefault.jpg" alt="Deux cartes ESP32 reliées à des joysticks et des haut-parleurs" loading="lazy" width="480" height="360">
+            <span class="lecture" aria-hidden="true">▶ Voir la démonstration</span>
           </a>
           <div class="corps">
-            <p class="contexte">Binôme · 3 jours</p>
+            <p class="contexte">Binôme · 3 jours · juin 2026</p>
             <h3>Pong connecté sur ESP32</h3>
             <p>
               Un Pong à deux joueurs sur deux microcontrôleurs qui communiquent directement entre eux,
               sans routeur ni serveur. Le terrain s'étend sur les deux écrans : la balle passe de l'un à l'autre.
             </p>
-            <ul class="points">
-              <li>Communication pair-à-pair en ESP-NOW</li>
-              <li>Architecture maître / esclave pour garder le jeu synchronisé</li>
-              <li>Musique jouée sans bloquer la boucle de jeu</li>
-            </ul>
             <ul class="technos" aria-label="Technologies">
               <li>C++</li><li>ESP32</li><li>ESP-NOW</li><li>Arduino</li>
             </ul>
+            <details>
+              <summary>Points techniques</summary>
+              <ul class="points">
+                <li>Communication pair-à-pair en ESP-NOW : les cartes s'identifient par leur adresse MAC.</li>
+                <li>Architecture maître / esclave : une seule carte calcule la partie et envoie l'état du jeu toutes les 40 ms.</li>
+                <li>Retour automatique à l'écran d'attente si le signal est perdu plus de 2 secondes.</li>
+                <li>Musique jouée sans bloquer la boucle de jeu.</li>
+              </ul>
+            </details>
             <p class="liens">
               <a href="https://github.com/yann-madry/pong-esp32">Voir le code</a>
-              <a href="https://youtu.be/keIEQiKue9o">Voir la démonstration</a>
             </p>
           </div>
         </article>
 
-        <article class="projet">
+        <article class="projet revele" data-tags="cpp">
+          <div class="visuel dessin" aria-hidden="true">
+            <svg viewBox="0 0 320 150" class="graphe">
+              <g class="aretes">
+                <path d="M40 75 L110 40"/><path d="M40 75 L110 110"/><path d="M110 40 L190 40"/>
+                <path d="M110 110 L190 110"/><path d="M190 40 L260 75"/><path d="M190 110 L260 75"/><path d="M110 40 L190 110"/>
+              </g>
+              <g class="chemin"><path d="M40 75 L110 40 L190 110 L260 75"/></g>
+              <g class="noeuds">
+                <circle cx="40" cy="75" r="9"/><circle cx="110" cy="40" r="9"/><circle cx="110" cy="110" r="9"/>
+                <circle cx="190" cy="40" r="9"/><circle cx="190" cy="110" r="9"/><circle cx="260" cy="75" r="9" class="fin"/>
+              </g>
+              <circle cx="275" cy="22" r="9" class="isole"/>
+            </svg>
+          </div>
           <div class="corps">
-            <p class="contexte">Équipe de 3 · 1 semaine</p>
+            <p class="contexte">Équipe de 3 · 1 semaine · juin 2026</p>
             <h3>Livre dont vous êtes le héros</h3>
             <p>
-              Une application de bureau pour écrire puis jouer un livre-jeu : l'auteur crée des pages reliées
-              par des choix, l'application vérifie que l'histoire est cohérente et l'exporte en site web.
+              Une application de bureau pour écrire puis jouer un livre-jeu. L'auteur crée des pages reliées
+              par des choix ; l'application vérifie que l'histoire est cohérente et l'exporte en site web.
             </p>
-            <ul class="points">
-              <li>Modèle de données en classes : pages, choix, conditions</li>
-              <li>Sauvegarde et rechargement en JSON</li>
-              <li>Détection des pages inaccessibles par un parcours en profondeur</li>
-            </ul>
             <ul class="technos" aria-label="Technologies">
               <li>C++</li><li>Qt Widgets</li><li>CMake</li><li>JSON</li>
             </ul>
+            <details>
+              <summary>Points techniques</summary>
+              <ul class="points">
+                <li>Modèle de données en classes : pages, choix, conditions, état du joueur.</li>
+                <li>Sauvegarde et rechargement du livre en JSON.</li>
+                <li>Détection des pages inaccessibles et des culs-de-sac par un parcours en profondeur.</li>
+              </ul>
+            </details>
             <p class="liens">
               <a href="https://github.com/yann-madry/livre-dont-vous-etes-le-heros">Voir le code</a>
             </p>
           </div>
         </article>
 
-        <article class="projet">
+        <article class="projet revele" data-tags="java">
+          <div class="visuel carte" aria-hidden="true">
+            <img src="img/france.svg" alt="" loading="lazy" width="907" height="1000">
+          </div>
           <div class="corps">
-            <p class="contexte">Équipe de 3 · 1 semaine</p>
+            <p class="contexte">Équipe de 3 · 1 semaine · janvier 2026</p>
             <h3>Quiz de géographie</h3>
             <p>
               Une application pour apprendre les départements, les régions et les préfectures de France.
-              La carte est un fichier SVG chargé par le programme : chaque département se survole, se clique ou se déplace.
+              Chaque département de la carte se survole, se clique ou se déplace.
             </p>
-            <ul class="points">
-              <li>Six modes de jeu, du puzzle au quiz photo</li>
-              <li>Carte SVG exploitée comme donnée, pas comme image</li>
-              <li>Plus de 2 000 lignes organisées en classes</li>
-            </ul>
             <ul class="technos" aria-label="Technologies">
               <li>Java</li><li>Processing</li><li>SVG</li>
             </ul>
+            <details>
+              <summary>Points techniques</summary>
+              <ul class="points">
+                <li>Carte SVG chargée par le programme et exploitée comme donnée, pas comme simple image.</li>
+                <li>Six modes de jeu : puzzle, quiz texte, quiz carte, quiz photo, liste à trouver, chaud / froid.</li>
+                <li>Plus de 2 000 lignes organisées en classes, avec une machine à états pour les écrans.</li>
+              </ul>
+            </details>
             <p class="liens">
               <a href="https://github.com/yann-madry/quiz-geographie-france">Voir le code</a>
             </p>
           </div>
         </article>
 
-      </div>
+        <article class="projet petit revele" data-tags="web">
+          <div class="corps">
+            <p class="contexte">Équipe · 1 semaine</p>
+            <h3>Refonte du site web d'une entreprise</h3>
+            <p>Analyse du site existant, maquettes, puis intégration de plusieurs pages responsives avec une charte graphique commune.</p>
+            <ul class="technos" aria-label="Technologies"><li>HTML</li><li>CSS</li></ul>
+          </div>
+        </article>
 
-      <h3 class="sous-titre">Autres réalisations</h3>
-      <ul class="autres">
-        <li>
-          <strong>Refonte du site web d'une entreprise</strong>
-          <span>Analyse du site existant, maquettes, puis intégration de plusieurs pages responsives.</span>
-          <em>HTML · CSS</em>
-        </li>
-        <li>
-          <strong>Duck Hunt</strong>
-          <span>Clone du jeu, migré de Tkinter vers Pygame pour gagner en fluidité et en stabilité.</span>
-          <em>Python · Pygame</em>
-        </li>
-        <li>
-          <strong>Poste de développement sur Raspberry Pi</strong>
-          <span>Installation et configuration d'un environnement complet sous Linux, avec notice en anglais.</span>
-          <em>Linux · Raspberry Pi</em>
-        </li>
-        <li>
-          <strong>Analyse de données</strong>
-          <span>Étude d'un jeu de données public de plusieurs milliers de lignes, graphiques et présentation en anglais.</span>
-          <em>Excel · Statistiques</em>
-        </li>
-      </ul>
+        <article class="projet petit revele" data-tags="python">
+          <div class="corps">
+            <p class="contexte">Projet personnel</p>
+            <h3>Duck Hunt</h3>
+            <p>Clone du jeu avec tirs, score et fin de partie. Migré de Tkinter vers Pygame pour gagner en fluidité et en stabilité.</p>
+            <ul class="technos" aria-label="Technologies"><li>Python</li><li>Pygame</li></ul>
+          </div>
+        </article>
+
+        <article class="projet petit revele" data-tags="embarque">
+          <div class="corps">
+            <p class="contexte">Binôme</p>
+            <h3>Poste de développement sur Raspberry Pi</h3>
+            <p>Installation et configuration d'un environnement de développement complet sous Linux, avec notice technique en anglais.</p>
+            <ul class="technos" aria-label="Technologies"><li>Linux</li><li>Raspberry Pi</li></ul>
+          </div>
+        </article>
+
+        <article class="projet petit revele" data-tags="donnees">
+          <div class="corps">
+            <p class="contexte">Équipe</p>
+            <h3>Analyse de données</h3>
+            <p>Étude d'un jeu de données public de plusieurs milliers de lignes : nettoyage, graphiques et présentation orale en anglais.</p>
+            <ul class="technos" aria-label="Technologies"><li>Excel</li><li>Statistiques</li></ul>
+          </div>
+        </article>
+
+      </div>
     </section>
 
+    <!-- ================= Compétences ================= -->
     <section id="competences" aria-labelledby="titre-competences">
       <p class="repere">02</p>
       <h2 id="titre-competences">Compétences</h2>
-      <dl class="competences">
-        <div>
-          <dt>Langages</dt>
-          <dd>Java, C++, SQL, HTML, CSS, PHP, Python, JavaScript</dd>
+      <p class="intro">Les langages sont classés par ordre de maîtrise.</p>
+
+      <div class="competences">
+        <div class="bloc large revele">
+          <h3>Langages</h3>
+          <ol class="puces classement">
+            <li class="fort">Java</li><li class="fort">C++</li><li>SQL</li><li>HTML</li>
+            <li>CSS</li><li>PHP</li><li>Python</li><li>JavaScript</li>
+          </ol>
         </div>
-        <div>
-          <dt>Bibliothèques</dt>
-          <dd>Qt, Swing, Processing, Pygame, Tkinter</dd>
+        <div class="bloc revele">
+          <h3>Bibliothèques</h3>
+          <ul class="puces"><li>Qt</li><li>Swing</li><li>Processing</li><li>Pygame</li><li>Tkinter</li></ul>
         </div>
-        <div>
-          <dt>Embarqué</dt>
-          <dd>ESP32, Arduino, Raspberry Pi</dd>
+        <div class="bloc revele">
+          <h3>Embarqué</h3>
+          <ul class="puces"><li>ESP32</li><li>Arduino</li><li>Raspberry Pi</li></ul>
         </div>
-        <div>
-          <dt>Systèmes et réseaux</dt>
-          <dd>Linux, Windows, TCP/IP, DHCP, NAT, VLAN</dd>
+        <div class="bloc revele">
+          <h3>Systèmes et réseaux</h3>
+          <ul class="puces"><li>Linux</li><li>Windows</li><li>TCP/IP</li><li>DHCP</li><li>NAT</li><li>VLAN</li></ul>
         </div>
-        <div>
-          <dt>Outils</dt>
-          <dd>Git, GitHub, GitLab, VS Code</dd>
+        <div class="bloc revele">
+          <h3>Outils</h3>
+          <ul class="puces"><li>Git</li><li>GitHub</li><li>GitLab</li><li>VS Code</li></ul>
         </div>
-        <div>
-          <dt>Langues</dt>
-          <dd>Français, anglais (B2)</dd>
-        </div>
-      </dl>
+      </div>
     </section>
 
+    <!-- ================= Parcours ================= -->
     <section id="parcours" aria-labelledby="titre-parcours">
       <p class="repere">03</p>
       <h2 id="titre-parcours">Parcours</h2>
-      <ol class="parcours">
-        <li>
-          <p class="date">2025 – aujourd'hui</p>
-          <h3>BUT Informatique</h3>
-          <p>IUT Lyon 1. Développement logiciel, bases de données, systèmes et réseaux.</p>
-        </li>
-        <li>
-          <p class="date">2025</p>
-          <h3>Baccalauréat général</h3>
-          <p>Spécialités Mathématiques et Numérique et Sciences Informatiques (NSI).</p>
-        </li>
-      </ol>
 
-      <aside class="tennis">
-        <h3>En dehors des cours</h3>
-        <p>
-          Je joue au tennis en compétition : classé 4/6 et champion de France 3ᵉ série en 2026.
-          J'en garde la rigueur, la régularité et l'habitude de la pression.
-        </p>
-      </aside>
+      <div class="parcours-grille">
+        <ol class="frise">
+          <li class="revele">
+            <p class="date">Avril – juin 2027</p>
+            <h3>Stage en développement</h3>
+            <p>Deux mois, du 12 avril au 10 juin. <a href="#contact">C'est peut-être chez vous.</a></p>
+          </li>
+          <li class="revele">
+            <p class="date">2025 – aujourd'hui</p>
+            <h3>BUT Informatique</h3>
+            <p>IUT Lyon 1. Développement logiciel, bases de données, systèmes et réseaux.</p>
+          </li>
+          <li class="revele">
+            <p class="date">2025</p>
+            <h3>Baccalauréat général</h3>
+            <p>Spécialités Mathématiques et Numérique et Sciences Informatiques (NSI).</p>
+          </li>
+        </ol>
+
+        <aside class="tennis revele">
+          <svg class="court" viewBox="0 0 200 110" aria-hidden="true">
+            <rect x="4" y="4" width="192" height="102"/>
+            <path d="M4 18h192M4 92h192M100 4v102M50 18v74M150 18v74M50 55h100"/>
+          </svg>
+          <h3>En dehors des cours</h3>
+          <p class="tennis-chiffre">4/6</p>
+          <p>
+            Je joue au tennis en compétition : classé 4/6 et <strong>champion de France 3ᵉ série en 2026</strong>.
+            J'en garde la rigueur, la régularité et l'habitude de la pression.
+          </p>
+        </aside>
+      </div>
     </section>
 
-    <section id="contact" aria-labelledby="titre-contact">
+    <!-- ================= Contact ================= -->
+    <section id="contact" class="contact" aria-labelledby="titre-contact">
       <p class="repere">04</p>
-      <h2 id="titre-contact">Contact</h2>
-      <p class="intro">Pour un stage du 12 avril au 10 juin 2027, ou simplement pour échanger sur un projet.</p>
+      <h2 id="titre-contact">Un stage à proposer&nbsp;?</h2>
+      <p class="intro">Je suis disponible du 12 avril au 10 juin 2027. Le plus simple est de m'écrire.</p>
+
+      <div class="contact-mail">
+        <a class="mail" data-utilisateur="y.madry07" data-domaine="gmail.com" href="#contact">Afficher mon adresse</a>
+        <button class="mini-bouton copier" type="button" hidden>Copier</button>
+        <span class="copie-ok" role="status" aria-live="polite"></span>
+      </div>
+      <noscript><p class="intro">y.madry07 [arobase] gmail.com</p></noscript>
+
       <div class="actions">
-        <a class="bouton plein" href="https://www.linkedin.com/in/yann-madry">Me contacter sur LinkedIn</a>
-        <a class="bouton" href="https://github.com/yann-madry">Mon GitHub</a>
+        <a class="bouton" href="https://www.linkedin.com/in/yann-madry">LinkedIn</a>
+        <a class="bouton" href="https://github.com/yann-madry">GitHub</a>
       </div>
     </section>
 
   </main>
 
   <footer class="pied">
-    <p>Yann Madry · Lyon · <a href="https://github.com/yann-madry/yann-madry.github.io">Code source de ce site</a></p>
+    <p>Yann Madry · Lyon</p>
+    <p><a href="https://github.com/yann-madry/yann-madry.github.io">Code source de ce site</a></p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
