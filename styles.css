@@ -335,7 +335,7 @@ summary:hover { color: var(--accent); }
 .points li { position: relative; padding-left: 1.3rem; color: var(--doux); font-size: 0.97rem; }
 .points li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.6rem; height: 2px; background: var(--accent); }
 
-.liens { margin-top: auto; padding-top: 1.1rem; font-weight: 700; }
+.liens { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin-top: auto; padding-top: 1.1rem; font-weight: 700; }
 .liens a { text-decoration: none; }
 .liens a::after { content: "→"; display: inline-block; margin-left: 0.4em; transition: transform 0.2s; }
 .liens a:hover::after { transform: translateX(4px); }
