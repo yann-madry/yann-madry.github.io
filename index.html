@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yann Madry – Étudiant en BUT Informatique</title>
-  <meta name="description" content="Portfolio de Yann Madry, étudiant en BUT Informatique à l'IUT Lyon 1. Projets en C++, Java et web. Recherche un stage en développement du 12 avril au 10 juin 2027.">
+  <meta name="description" content="Portfolio de Yann Madry, étudiant en BUT Informatique à l'IUT Lyon 1. Sites web, bases de données, logiciels et embarqué.">
   <meta property="og:title" content="Yann Madry – Étudiant en BUT Informatique">
-  <meta property="og:description" content="Projets en C++, Java et web. Recherche un stage en développement du 12 avril au 10 juin 2027.">
+  <meta property="og:description" content="Sites web, bases de données, logiciels et embarqué : mes projets et leur code.">
   <meta property="og:type" content="website">
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111'/%3E%3Crect x='5' y='9' width='3' height='14' fill='%23fff'/%3E%3Crect x='24' y='9' width='3' height='14' fill='%23fff'/%3E%3Crect x='14' y='14' width='4' height='4' fill='%23ff8a5b'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c2481a'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23fff'%3EYM%3C/text%3E%3C/svg%3E">
 
   <!-- Applique le thème choisi avant l'affichage, pour éviter un flash -->
   <script>
@@ -31,7 +31,7 @@
 
   <header class="entete">
     <a class="marque" href="#haut" aria-label="Yann Madry, retour en haut">
-      <span class="marque-logo" aria-hidden="true"></span>Yann Madry
+      <span class="marque-logo" aria-hidden="true">YM</span>Yann Madry
     </a>
     <nav aria-label="Navigation principale">
       <a href="#projets">Projets</a>
@@ -52,9 +52,9 @@
         <p class="surtitre">BUT Informatique · IUT Lyon 1 · 2ᵉ année</p>
         <h1>Yann<br>Madry</h1>
         <p class="accroche">
-          Je développe en Java et en C++&nbsp;:
-          <span class="rotation" aria-hidden="true"><span class="rotation-mot">logiciel de bureau</span></span>
-          <span class="visuellement-cache">logiciel de bureau, systèmes embarqués et sites web.</span>
+          Je développe
+          <span class="rotation" aria-hidden="true"><span class="rotation-mot">des sites web</span></span>
+          <span class="visuellement-cache">des sites web, des bases de données, des logiciels de bureau et des systèmes embarqués.</span>
         </p>
         <p class="dispo">
           <span class="pastille" aria-hidden="true"></span>
@@ -66,53 +66,50 @@
         </div>
       </div>
 
-      <figure class="console">
-        <div class="console-boitier">
-          <div class="console-barre" aria-hidden="true">
-            <span></span><span></span><span></span>
-            <em>pong.ino</em>
-          </div>
-          <canvas id="pong" width="128" height="64" tabindex="0" role="img"
-                  aria-label="Démonstration animée du jeu Pong. Avec la souris ou les flèches haut et bas, on contrôle la raquette de gauche."></canvas>
-        </div>
-        <figcaption>
-          <span id="pong-aide">Passe la souris sur l'écran pour jouer</span>
-          <button id="pong-pause" class="mini-bouton" type="button" aria-pressed="false">Pause</button>
-        </figcaption>
-        <p class="console-note">Un écran de 128 × 64 pixels, comme celui de mon <a href="#projet-pong">Pong sur ESP32</a>.</p>
-      </figure>
-    </section>
-
-    <!-- ================= En bref ================= -->
-    <section class="bref" aria-label="En bref">
-      <dl>
-        <div class="revele"><dt>Formation</dt><dd>BUT Informatique, 2ᵉ année</dd></div>
-        <div class="revele"><dt>Stage recherché</dt><dd>12 avril – 10 juin 2027</dd></div>
-        <div class="revele"><dt>Langages principaux</dt><dd>Java, C++</dd></div>
-        <div class="revele"><dt>Anglais</dt><dd>Niveau B2</dd></div>
-      </dl>
+      <!-- Les quatre domaines : un clic affiche les projets correspondants -->
+      <nav class="domaines" aria-label="Mes domaines">
+        <p class="domaines-titre">Ce que je fais</p>
+        <a class="domaine" href="#projets" data-filtre="web">
+          <span class="domaine-numero">01</span>
+          <span class="domaine-nom">Web</span>
+          <span class="domaine-detail">HTML · CSS · JavaScript · PHP</span>
+        </a>
+        <a class="domaine" href="#projets" data-filtre="sql">
+          <span class="domaine-numero">02</span>
+          <span class="domaine-nom">Bases de données</span>
+          <span class="domaine-detail">SQL · MariaDB · modélisation</span>
+        </a>
+        <a class="domaine" href="#projets" data-filtre="logiciel">
+          <span class="domaine-numero">03</span>
+          <span class="domaine-nom">Logiciel</span>
+          <span class="domaine-detail">Java · C++ · Python · Qt</span>
+        </a>
+        <a class="domaine" href="#projets" data-filtre="embarque">
+          <span class="domaine-numero">04</span>
+          <span class="domaine-nom">Embarqué</span>
+          <span class="domaine-detail">ESP32 · Arduino · Raspberry Pi</span>
+        </a>
+      </nav>
     </section>
 
     <!-- ================= Projets ================= -->
     <section id="projets" aria-labelledby="titre-projets">
       <p class="repere">01</p>
       <h2 id="titre-projets">Projets</h2>
-      <p class="intro">Du microcontrôleur à l'application de bureau. Les trois premiers ont leur code en ligne.</p>
+      <p class="intro">Du site web au microcontrôleur. Les trois premiers ont leur code en ligne.</p>
 
-      <div class="filtres" role="group" aria-label="Filtrer les projets par technologie">
+      <div class="filtres" role="group" aria-label="Filtrer les projets par domaine">
         <button type="button" class="filtre" data-filtre="tous" aria-pressed="true">Tous</button>
-        <button type="button" class="filtre" data-filtre="cpp" aria-pressed="false">C++</button>
-        <button type="button" class="filtre" data-filtre="java" aria-pressed="false">Java</button>
-        <button type="button" class="filtre" data-filtre="python" aria-pressed="false">Python</button>
         <button type="button" class="filtre" data-filtre="web" aria-pressed="false">Web</button>
+        <button type="button" class="filtre" data-filtre="sql" aria-pressed="false">Bases de données</button>
+        <button type="button" class="filtre" data-filtre="logiciel" aria-pressed="false">Logiciel</button>
         <button type="button" class="filtre" data-filtre="embarque" aria-pressed="false">Embarqué</button>
-        <button type="button" class="filtre" data-filtre="donnees" aria-pressed="false">Données</button>
       </div>
       <p class="filtres-compte" aria-live="polite"></p>
 
       <div class="projets">
 
-        <article class="projet vedette revele" id="projet-pong" data-tags="cpp embarque">
+        <article class="projet vedette revele" id="projet-pong" data-tags="embarque">
           <a class="visuel" href="https://youtu.be/keIEQiKue9o" aria-label="Voir la vidéo de démonstration du Pong">
             <img src="https://img.youtube.com/vi/keIEQiKue9o/hqdefault.jpg" alt="Deux cartes ESP32 reliées à des joysticks et des haut-parleurs" loading="lazy" width="480" height="360">
             <span class="lecture" aria-hidden="true">▶ Voir la démonstration</span>
@@ -142,7 +139,7 @@
           </div>
         </article>
 
-        <article class="projet revele" data-tags="cpp">
+        <article class="projet revele" data-tags="logiciel">
           <div class="visuel dessin" aria-hidden="true">
             <svg viewBox="0 0 320 150" class="graphe">
               <g class="aretes">
@@ -181,7 +178,7 @@
           </div>
         </article>
 
-        <article class="projet revele" data-tags="java">
+        <article class="projet revele" data-tags="logiciel">
           <div class="visuel carte" aria-hidden="true">
             <img src="img/france.svg" alt="" loading="lazy" width="907" height="1000">
           </div>
@@ -209,6 +206,15 @@
           </div>
         </article>
 
+        <article class="projet petit revele" data-tags="web sql">
+          <div class="corps">
+            <p class="contexte">Équipe · en cours · 2026-2027</p>
+            <h3>Application web de gestion de clients</h3>
+            <p>Une application web complète : pages en PHP, base de données MariaDB, interface en HTML et CSS, travail en équipe avec Git.</p>
+            <ul class="technos" aria-label="Technologies"><li>PHP</li><li>MariaDB</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+        </article>
+
         <article class="projet petit revele" data-tags="web">
           <div class="corps">
             <p class="contexte">Équipe · 1 semaine</p>
@@ -218,7 +224,25 @@
           </div>
         </article>
 
-        <article class="projet petit revele" data-tags="python">
+        <article class="projet petit revele" data-tags="web">
+          <div class="corps">
+            <p class="contexte">Projet personnel · en cours</p>
+            <h3>Site vitrine d'un cabinet d'architecture</h3>
+            <p>Refonte du site d'une entreprise locale, pour un client réel : nouvelle interface et navigation simplifiée.</p>
+            <ul class="technos" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+        </article>
+
+        <article class="projet petit revele" data-tags="sql">
+          <div class="corps">
+            <p class="contexte">Équipe</p>
+            <h3>Conception d'une base de données</h3>
+            <p>De l'analyse du besoin au modèle de données (MCD, MLD), puis création des tables et requêtes SQL.</p>
+            <ul class="technos" aria-label="Technologies"><li>SQL</li><li>MCD / MLD</li></ul>
+          </div>
+        </article>
+
+        <article class="projet petit revele" data-tags="logiciel">
           <div class="corps">
             <p class="contexte">Projet personnel</p>
             <h3>Duck Hunt</h3>
@@ -236,15 +260,6 @@
           </div>
         </article>
 
-        <article class="projet petit revele" data-tags="donnees">
-          <div class="corps">
-            <p class="contexte">Équipe</p>
-            <h3>Analyse de données</h3>
-            <p>Étude d'un jeu de données public de plusieurs milliers de lignes : nettoyage, graphiques et présentation orale en anglais.</p>
-            <ul class="technos" aria-label="Technologies"><li>Excel</li><li>Statistiques</li></ul>
-          </div>
-        </article>
-
       </div>
     </section>
 
@@ -252,19 +267,19 @@
     <section id="competences" aria-labelledby="titre-competences">
       <p class="repere">02</p>
       <h2 id="titre-competences">Compétences</h2>
-      <p class="intro">Les langages sont classés par ordre de maîtrise.</p>
 
       <div class="competences">
-        <div class="bloc large revele">
-          <h3>Langages</h3>
-          <ol class="puces classement">
-            <li class="fort">Java</li><li class="fort">C++</li><li>SQL</li><li>HTML</li>
-            <li>CSS</li><li>PHP</li><li>Python</li><li>JavaScript</li>
-          </ol>
+        <div class="bloc revele">
+          <h3>Web</h3>
+          <ul class="puces"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li></ul>
         </div>
         <div class="bloc revele">
-          <h3>Bibliothèques</h3>
-          <ul class="puces"><li>Qt</li><li>Swing</li><li>Processing</li><li>Pygame</li><li>Tkinter</li></ul>
+          <h3>Bases de données</h3>
+          <ul class="puces"><li>SQL</li><li>MariaDB</li><li>MCD / MLD</li></ul>
+        </div>
+        <div class="bloc revele">
+          <h3>Logiciel</h3>
+          <ul class="puces"><li>Java</li><li>C++</li><li>Python</li><li>Qt</li><li>Swing</li><li>Processing</li></ul>
         </div>
         <div class="bloc revele">
           <h3>Embarqué</h3>
@@ -275,8 +290,8 @@
           <ul class="puces"><li>Linux</li><li>Windows</li><li>TCP/IP</li><li>DHCP</li><li>NAT</li><li>VLAN</li></ul>
         </div>
         <div class="bloc revele">
-          <h3>Outils</h3>
-          <ul class="puces"><li>Git</li><li>GitHub</li><li>GitLab</li><li>VS Code</li></ul>
+          <h3>Outils et langues</h3>
+          <ul class="puces"><li>Git</li><li>GitHub</li><li>GitLab</li><li>VS Code</li><li>Anglais B2</li></ul>
         </div>
       </div>
     </section>
@@ -289,14 +304,9 @@
       <div class="parcours-grille">
         <ol class="frise">
           <li class="revele">
-            <p class="date">Avril – juin 2027</p>
-            <h3>Stage en développement</h3>
-            <p>Deux mois, du 12 avril au 10 juin. <a href="#contact">C'est peut-être chez vous.</a></p>
-          </li>
-          <li class="revele">
             <p class="date">2025 – aujourd'hui</p>
             <h3>BUT Informatique</h3>
-            <p>IUT Lyon 1. Développement logiciel, bases de données, systèmes et réseaux.</p>
+            <p>IUT Lyon 1. Développement web et logiciel, bases de données, systèmes et réseaux.</p>
           </li>
           <li class="revele">
             <p class="date">2025</p>
@@ -323,8 +333,8 @@
     <!-- ================= Contact ================= -->
     <section id="contact" class="contact" aria-labelledby="titre-contact">
       <p class="repere">04</p>
-      <h2 id="titre-contact">Un stage à proposer&nbsp;?</h2>
-      <p class="intro">Je suis disponible du 12 avril au 10 juin 2027. Le plus simple est de m'écrire.</p>
+      <h2 id="titre-contact">Me contacter</h2>
+      <p class="intro">Pour un stage du 12 avril au 10 juin 2027, ou pour échanger sur un projet.</p>
 
       <div class="contact-mail">
         <a class="mail" data-utilisateur="y.madry07" data-domaine="gmail.com" href="#contact">Afficher mon adresse</a>

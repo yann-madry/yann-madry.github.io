@@ -156,15 +156,11 @@ h2 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); letter-spacing: -0.035em; }
 
 .marque { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 700; text-decoration: none; letter-spacing: -0.02em; margin-right: auto; }
 .marque:hover { color: inherit; }
-/* Petit logo : deux raquettes et une balle */
 .marque-logo {
-  width: 1.5rem; height: 1.5rem; border-radius: 6px; background: var(--texte);
-  background-image:
-    linear-gradient(var(--fond), var(--fond)), linear-gradient(var(--fond), var(--fond)),
-    linear-gradient(var(--accent), var(--accent));
-  background-size: 2px 10px, 2px 10px, 4px 4px;
-  background-position: 4px 5px, calc(100% - 4px) 9px, center;
-  background-repeat: no-repeat;
+  display: grid; place-items: center;
+  width: 1.7rem; height: 1.7rem; border-radius: 7px;
+  background: var(--accent); color: var(--sur-accent);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0;
 }
 
 /* Sur téléphone, le menu passe sous le nom ; sur grand écran, tout tient sur une ligne */
@@ -221,7 +217,7 @@ h1 {
 .accroche { font-size: clamp(1.25rem, 2.6vw, 1.6rem); line-height: 1.35; max-width: 30rem; }
 
 /* Mot qui change dans l'accroche */
-.rotation { display: block; color: var(--accent); font-weight: 700; min-height: 1.4em; }
+.rotation { display: block; white-space: nowrap; color: var(--accent); font-weight: 700; min-height: 1.4em; }
 .rotation-mot { display: inline-block; transition: opacity 0.35s, transform 0.35s; }
 .rotation-mot.sort { opacity: 0; transform: translateY(-0.4em); }
 .rotation-mot::after { content: "_"; margin-left: 0.1em; animation: clignote 1s steps(1) infinite; }
@@ -241,40 +237,29 @@ h1 {
 }
 @keyframes pulse { 70% { box-shadow: 0 0 0 0.6rem transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
 
-/* Mini-console de jeu */
-.console { min-width: 0; }
-.console-boitier {
-  padding: 0.7rem 0.7rem 0.9rem;
-  background: #111114; border: 1px solid #2c2c35; border-radius: 22px;
-  box-shadow: var(--ombre), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  transform: rotate(-1.2deg);
-  transition: transform 0.4s ease;
+/* Les quatre domaines, à droite de la présentation */
+.domaines {
+  min-width: 0;
+  padding: 0.5rem 1.5rem 0.75rem;
+  background: var(--surface); border: 1px solid var(--trait); border-radius: 22px;
+  box-shadow: var(--ombre);
 }
-.console:hover .console-boitier, .console:focus-within .console-boitier { transform: rotate(0deg) scale(1.01); }
-.console-barre { display: flex; align-items: center; gap: 0.35rem; padding: 0.15rem 0.4rem 0.65rem; }
-.console-barre span { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #34343f; }
-.console-barre span:first-child { background: #ff8a5b; }
-.console-barre em { margin-left: auto; font-family: var(--mono); font-style: normal; font-size: 0.72rem; color: #7d7a88; }
-
-#pong {
-  display: block; width: 100%; aspect-ratio: 2 / 1;
-  background: #000; border-radius: 10px;
-  image-rendering: pixelated; cursor: none;
+.domaines-titre {
+  padding: 1rem 0 0.75rem;
+  font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--doux);
 }
-#pong:focus-visible { outline-offset: 4px; }
-
-.console figcaption {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  margin-top: 1rem; font-family: var(--mono); font-size: 0.8rem; color: var(--doux);
+.domaine {
+  display: grid; grid-template-columns: 2.2rem 1fr auto; align-items: baseline; gap: 0.1rem 0.5rem;
+  padding: 1rem 0; border-top: 1px solid var(--trait);
+  text-decoration: none;
+  transition: padding 0.25s ease, color 0.2s;
 }
-.console-note { margin-top: 0.4rem; font-size: 0.9rem; color: var(--doux); }
-
-/* Bandeau « en bref » */
-.bref { padding: 0; border-block: 1px solid var(--trait); }
-.bref dl { display: grid; grid-template-columns: repeat(2, 1fr); }
-.bref div { padding: 1.4rem 1rem 1.4rem 0; }
-.bref dt { font-family: var(--mono); font-size: 0.75rem; color: var(--doux); text-transform: uppercase; letter-spacing: 0.06em; }
-.bref dd { font-weight: 700; font-size: 1.1rem; margin-top: 0.25rem; }
+.domaine::after { content: "→"; grid-column: 3; grid-row: 1; color: var(--accent); opacity: 0; transform: translateX(-6px); transition: opacity 0.25s, transform 0.25s; }
+.domaine:hover, .domaine:focus-visible { padding-left: 0.5rem; color: inherit; }
+.domaine:hover::after, .domaine:focus-visible::after { opacity: 1; transform: none; }
+.domaine-numero { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); }
+.domaine-nom { font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; }
+.domaine-detail { grid-column: 2 / -1; font-family: var(--mono); font-size: 0.78rem; color: var(--doux); }
 
 /* ---------- 5. Projets ---------- */
 .filtres { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.25rem; }
@@ -367,10 +352,6 @@ summary:hover { color: var(--accent); }
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 .puces li:hover { background: var(--texte); color: var(--fond); transform: translateY(-2px); }
-.puces .fort { background: var(--accent); color: var(--sur-accent); }
-.classement { counter-reset: rang; }
-.classement li { counter-increment: rang; }
-.classement li::before { content: counter(rang); font-family: var(--mono); font-size: 0.7rem; opacity: 0.6; margin-right: 0.45rem; }
 
 /* ---------- 7. Parcours ---------- */
 .parcours-grille { display: grid; gap: 2.5rem; margin-top: 2.5rem; }
@@ -429,17 +410,16 @@ summary:hover { color: var(--accent); }
   .entete nav { order: 2; flex-basis: auto; margin-left: 0; gap: 0.25rem; }
   .entete nav a { padding: 0.3rem 0.8rem; font-size: 0.95rem; }
   .bascule-theme { order: 3; }
-  .bref dl { grid-template-columns: repeat(4, 1fr); }
   .projets { grid-template-columns: repeat(2, 1fr); }
   .competences { grid-template-columns: repeat(2, 1fr); }
-  .bloc.large { grid-column: 1 / -1; }
 }
 
 @media (min-width: 60rem) {
   .hero { grid-template-columns: 1.05fr 1fr; padding: 6rem 0 5.5rem; }
-  .projets { grid-template-columns: repeat(4, 1fr); }
-  .projet { grid-column: span 2; }
-  .projet.petit { grid-column: span 1; }
+  .projets { grid-template-columns: repeat(6, 1fr); }
+  .projet { grid-column: span 3; }
+  .projet.petit { grid-column: span 2; }
+  .competences { grid-template-columns: repeat(3, 1fr); }
   .projet.vedette { grid-column: 1 / -1; flex-direction: row; }
   .projet.vedette .visuel { flex: 0 0 46%; aspect-ratio: auto; }
   .projet.vedette h3 { font-size: 2rem; }
