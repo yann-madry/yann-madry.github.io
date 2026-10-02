@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yann Madry – Étudiant en BUT Informatique</title>
+  <meta name="description" content="Portfolio de Yann Madry, étudiant en BUT Informatique à l'IUT Lyon 1. Projets en C++, Java et web. Recherche un stage en développement du 12 avril au 10 juin 2027.">
+  <meta property="og:title" content="Yann Madry – Étudiant en BUT Informatique">
+  <meta property="og:description" content="Projets en C++, Java et web. Recherche un stage en développement du 12 avril au 10 juin 2027.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c8552b'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23fff'%3EYM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <a class="marque" href="#haut">Yann Madry</a>
+    <nav aria-label="Navigation principale">
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="contenu">
+
+    <section class="hero" id="haut">
+      <p class="surtitre">BUT Informatique · IUT Lyon 1 · 2ᵉ année</p>
+      <h1>Yann Madry</h1>
+      <p class="accroche">
+        Je développe en Java et en C++, du logiciel de bureau à l'embarqué en passant par le web.
+      </p>
+      <p class="dispo">
+        <span class="pastille" aria-hidden="true"></span>
+        <span>Je cherche un stage en développement du <strong>12 avril au 10 juin 2027</strong>.</span>
+      </p>
+      <div class="actions">
+        <a class="bouton plein" href="#projets">Voir mes projets</a>
+        <a class="bouton" href="https://github.com/yann-madry">GitHub</a>
+        <a class="bouton" href="https://www.linkedin.com/in/yann-madry">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="projets" aria-labelledby="titre-projets">
+      <p class="repere">01</p>
+      <h2 id="titre-projets">Projets</h2>
+      <p class="intro">Trois projets menés en équipe pendant ma première année, avec leur code en ligne.</p>
+
+      <div class="projets">
+
+        <article class="projet">
+          <a class="vignette" href="https://youtu.be/keIEQiKue9o" aria-label="Voir la vidéo de démonstration du Pong">
+            <img src="https://img.youtube.com/vi/keIEQiKue9o/hqdefault.jpg" alt="Deux cartes ESP32 affichant une partie de Pong" loading="lazy" width="480" height="360">
+            <span class="lecture" aria-hidden="true">▶ Vidéo</span>
+          </a>
+          <div class="corps">
+            <p class="contexte">Binôme · 3 jours</p>
+            <h3>Pong connecté sur ESP32</h3>
+            <p>
+              Un Pong à deux joueurs sur deux microcontrôleurs qui communiquent directement entre eux,
+              sans routeur ni serveur. Le terrain s'étend sur les deux écrans : la balle passe de l'un à l'autre.
+            </p>
+            <ul class="points">
+              <li>Communication pair-à-pair en ESP-NOW</li>
+              <li>Architecture maître / esclave pour garder le jeu synchronisé</li>
+              <li>Musique jouée sans bloquer la boucle de jeu</li>
+            </ul>
+            <ul class="technos" aria-label="Technologies">
+              <li>C++</li><li>ESP32</li><li>ESP-NOW</li><li>Arduino</li>
+            </ul>
+            <p class="liens">
+              <a href="https://github.com/yann-madry/pong-esp32">Voir le code</a>
+              <a href="https://youtu.be/keIEQiKue9o">Voir la démonstration</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="projet">
+          <div class="corps">
+            <p class="contexte">Équipe de 3 · 1 semaine</p>
+            <h3>Livre dont vous êtes le héros</h3>
+            <p>
+              Une application de bureau pour écrire puis jouer un livre-jeu : l'auteur crée des pages reliées
+              par des choix, l'application vérifie que l'histoire est cohérente et l'exporte en site web.
+            </p>
+            <ul class="points">
+              <li>Modèle de données en classes : pages, choix, conditions</li>
+              <li>Sauvegarde et rechargement en JSON</li>
+              <li>Détection des pages inaccessibles par un parcours en profondeur</li>
+            </ul>
+            <ul class="technos" aria-label="Technologies">
+              <li>C++</li><li>Qt Widgets</li><li>CMake</li><li>JSON</li>
+            </ul>
+            <p class="liens">
+              <a href="https://github.com/yann-madry/livre-dont-vous-etes-le-heros">Voir le code</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="projet">
+          <div class="corps">
+            <p class="contexte">Équipe de 3 · 1 semaine</p>
+            <h3>Quiz de géographie</h3>
+            <p>
+              Une application pour apprendre les départements, les régions et les préfectures de France.
+              La carte est un fichier SVG chargé par le programme : chaque département se survole, se clique ou se déplace.
+            </p>
+            <ul class="points">
+              <li>Six modes de jeu, du puzzle au quiz photo</li>
+              <li>Carte SVG exploitée comme donnée, pas comme image</li>
+              <li>Plus de 2 000 lignes organisées en classes</li>
+            </ul>
+            <ul class="technos" aria-label="Technologies">
+              <li>Java</li><li>Processing</li><li>SVG</li>
+            </ul>
+            <p class="liens">
+              <a href="https://github.com/yann-madry/quiz-geographie-france">Voir le code</a>
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 class="sous-titre">Autres réalisations</h3>
+      <ul class="autres">
+        <li>
+          <strong>Refonte du site web d'une entreprise</strong>
+          <span>Analyse du site existant, maquettes, puis intégration de plusieurs pages responsives.</span>
+          <em>HTML · CSS</em>
+        </li>
+        <li>
+          <strong>Duck Hunt</strong>
+          <span>Clone du jeu, migré de Tkinter vers Pygame pour gagner en fluidité et en stabilité.</span>
+          <em>Python · Pygame</em>
+        </li>
+        <li>
+          <strong>Poste de développement sur Raspberry Pi</strong>
+          <span>Installation et configuration d'un environnement complet sous Linux, avec notice en anglais.</span>
+          <em>Linux · Raspberry Pi</em>
+        </li>
+        <li>
+          <strong>Analyse de données</strong>
+          <span>Étude d'un jeu de données public de plusieurs milliers de lignes, graphiques et présentation en anglais.</span>
+          <em>Excel · Statistiques</em>
+        </li>
+      </ul>
+    </section>
+
+    <section id="competences" aria-labelledby="titre-competences">
+      <p class="repere">02</p>
+      <h2 id="titre-competences">Compétences</h2>
+      <dl class="competences">
+        <div>
+          <dt>Langages</dt>
+          <dd>Java, C++, SQL, HTML, CSS, PHP, Python, JavaScript</dd>
+        </div>
+        <div>
+          <dt>Bibliothèques</dt>
+          <dd>Qt, Swing, Processing, Pygame, Tkinter</dd>
+        </div>
+        <div>
+          <dt>Embarqué</dt>
+          <dd>ESP32, Arduino, Raspberry Pi</dd>
+        </div>
+        <div>
+          <dt>Systèmes et réseaux</dt>
+          <dd>Linux, Windows, TCP/IP, DHCP, NAT, VLAN</dd>
+        </div>
+        <div>
+          <dt>Outils</dt>
+          <dd>Git, GitHub, GitLab, VS Code</dd>
+        </div>
+        <div>
+          <dt>Langues</dt>
+          <dd>Français, anglais (B2)</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="parcours" aria-labelledby="titre-parcours">
+      <p class="repere">03</p>
+      <h2 id="titre-parcours">Parcours</h2>
+      <ol class="parcours">
+        <li>
+          <p class="date">2025 – aujourd'hui</p>
+          <h3>BUT Informatique</h3>
+          <p>IUT Lyon 1. Développement logiciel, bases de données, systèmes et réseaux.</p>
+        </li>
+        <li>
+          <p class="date">2025</p>
+          <h3>Baccalauréat général</h3>
+          <p>Spécialités Mathématiques et Numérique et Sciences Informatiques (NSI).</p>
+        </li>
+      </ol>
+
+      <aside class="tennis">
+        <h3>En dehors des cours</h3>
+        <p>
+          Je joue au tennis en compétition : classé 4/6 et champion de France 3ᵉ série en 2026.
+          J'en garde la rigueur, la régularité et l'habitude de la pression.
+        </p>
+      </aside>
+    </section>
+
+    <section id="contact" aria-labelledby="titre-contact">
+      <p class="repere">04</p>
+      <h2 id="titre-contact">Contact</h2>
+      <p class="intro">Pour un stage du 12 avril au 10 juin 2027, ou simplement pour échanger sur un projet.</p>
+      <div class="actions">
+        <a class="bouton plein" href="https://www.linkedin.com/in/yann-madry">Me contacter sur LinkedIn</a>
+        <a class="bouton" href="https://github.com/yann-madry">Mon GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <p>Yann Madry · Lyon · <a href="https://github.com/yann-madry/yann-madry.github.io">Code source de ce site</a></p>
+  </footer>
+</body>
+</html>
